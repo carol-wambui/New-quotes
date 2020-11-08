@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+button{
+    margin-right: 3%;
+}
+body{
+    background-image: url(./assets/photo-1521846562476-9c2446539e47.jpeg);
+}
