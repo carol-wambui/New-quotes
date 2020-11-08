@@ -11,6 +11,7 @@
                 <span class="card-subtitle mb-2">Posted by: <span id="name">{{quote.user}}</span><span id="date"> <span id="datecolor"><br>{{quote.day|dateCount}} days ago</span></span></span><br>
                 <button  class="btn btn-outline-success"     (click)='upvotes(i)'>Likes {{quote.likes}}</button>
                 <button   class="btn btn-outline-primary"    (click)='downvotes(i)'>Dislikes{{quote.unlikes}}</button>
+                <button   class="btn btn-outline-danger"    (click)='deleteQuote($event,i)'>Del</button>
 
             </div>
             </div> 
