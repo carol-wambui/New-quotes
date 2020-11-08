@@ -1,29 +1,55 @@
-<div class="Intro">
-    <div class="container-fluid">
-      <div class="row">
-        
-        <div class="col-md-6">
-          
-          <div class="card" class="cachy">
-            <div *ngFor="let quote of quotes let i= index" class="card" style="width: 24rem;"  >
-              <div class="card-body" >
-                <h4 class="card-title">{{quote.author}}</h4>
-                <p class="card-text" id="param">{{quote.description}}</p>
-                <app-quote-details *ngIf='quote.showInfo' bind-quoty='quote' (isRead)='quoteDelete($event,i)'></app-quote-details>
-                <span class="card-subtitle mb-2">Posted by: <span id="name">{{quote.user}}</span><span id="date"> <span id="datecolor"><br>{{quote.day|dateCount}} days ago</span></span></span><br>
-                <button  class="btn btn-outline-success"     (click)='upvotes(i)'>Likes {{quote.likes}}</button>
-                <button   class="btn btn-outline-primary"    (click)='downvotes(i)'>Dislikes{{quote.unlikes}}</button>
-                <button   class="btn btn-outline-danger"    (click)='deleteQuote($event,i)'>Delete</button>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">The Quotes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#home">Home </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#addquote">Add Quote</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#quotes">Quotes</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  <br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div id="quotes">
+
+        <div class="card" class="cachy">
+          <div *ngFor="let quote of quotes let i= index" class="card" style="width: 24rem;">
+            <div class="card-body">
+              <h4 class="card-title">{{quote.author}}</h4>
+              <p class="card-text" id="param">{{quote.description}}</p>
+              <app-quote-details *ngIf='quote.showInfo' bind-quoty='quote' (isRead)='quoteDelete($event,i)'>
+              </app-quote-details>
+              <span class="card-subtitle mb-2">Posted by: <span id="name">{{quote.user}}</span><span id="date"> <span
+                    id="datecolor"><br>{{quote.day|dateCount}} days ago</span></span></span><br>
+              <button class="btn btn-outline-success" (click)='upvotes(i)'>Likes {{quote.likes}}</button>
+              <button class="btn btn-outline-primary" (click)='downvotes(i)'>Dislikes{{quote.unlikes}}</button>
+              <button class="btn btn-outline-danger" (click)='deleteQuote($event,i)'>Delete</button>
 
             </div>
-            </div> 
           </div>
         </div>
-        <div class="col-md-6">
-          <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
-      </div>
       </div>
     </div>
-  
+    <div class="col-md-5 text-white">
+      <div id="addquote">
+
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
   </div>
-  
+</div>

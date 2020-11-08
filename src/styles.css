@@ -3,3 +3,9 @@
 button{
     margin-right: 3%;
 }
+.container-fluid{
+    background: url("src/assets/photo-1521846562476-9c2446539e47.jpeg")
+}
+.card{
+ margin-bottom: 5%;
+}
